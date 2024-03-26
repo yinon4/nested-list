@@ -3,8 +3,13 @@ import Link from "next/link";
 import { CreatePost } from "~/app/_components/create-post";
 import { api } from "~/trpc/server";
 
+import { currentUser } from "@clerk/nextjs";
+
 export default async function Home() {
   const hello = await api.post.hello({ text: "from tRPC" });
+  const user = await currentUser();
+  console.log(user?.firstName, user?.lastName);
+  console.log(user);
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
