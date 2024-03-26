@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { api } from "~/trpc/react";
 
-export function CreatePost() {
+export const CreatePost = () => {
   const router = useRouter();
   const [name, setName] = useState("");
 
@@ -39,4 +39,4 @@ export function CreatePost() {
       </button>
     </form>
   );
-}
+};
