@@ -6,16 +6,17 @@ generator client {
 }
 
 datasource db {
-    provider = "postgresql"
-    url      = env("DATABASE_URL")
+    provider     = "postgresql"
+    url          = env("DATABASE_URL")
     relationMode = "prisma"
 }
 
-model Post {
-    id        Int      @id @default(autoincrement())
-    name      String
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
-
-    @@index([name])
+model Line {
+    id        String    @id @default(cuid())
+    body      String
+    // tags     String[]
+    parents   Line[]    @relation("LineRelation")
+    children  Line[]    @relation("LineRelation")
+    updatedAt DateTime  @default(now())
+    deletedAt DateTime?
 }
