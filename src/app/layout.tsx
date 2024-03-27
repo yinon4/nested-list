@@ -15,7 +15,7 @@ export const metadata = {
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
-export default ({ children }: { children: React.ReactNode }) => {
+const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <ClerkProvider>
       <html lang="en" className="dark">
@@ -26,3 +26,5 @@ export default ({ children }: { children: React.ReactNode }) => {
     </ClerkProvider>
   );
 };
+
+export default Layout;

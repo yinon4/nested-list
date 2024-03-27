@@ -5,7 +5,7 @@ import { api } from "~/trpc/server";
 
 import { currentUser } from "@clerk/nextjs";
 
-export default async () => {
+const Page = async () => {
   const user = await currentUser();
 
   return (
@@ -26,7 +26,7 @@ const CrudShowcase = async () => {
   return (
     <div className="w-full max-w-xs">
       {childPosts.length ? (
-        childPosts.map((post) => <div>{post.body}</div>)
+        childPosts.map((post) => <div key={post.id}>{post.body}</div>)
       ) : (
         <p>You have no posts yet.</p>
       )}
@@ -35,3 +35,5 @@ const CrudShowcase = async () => {
     </div>
   );
 };
+
+export default Page;
