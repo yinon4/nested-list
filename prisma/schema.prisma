@@ -14,7 +14,6 @@ datasource db {
 model Line {
     id        String    @id @default(cuid())
     body      String
-    // tags     String[]
     parents   Line[]    @relation("LineRelation")
     children  Line[]    @relation("LineRelation")
     updatedAt DateTime  @default(now())

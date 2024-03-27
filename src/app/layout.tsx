@@ -18,7 +18,7 @@ export const metadata = {
 export default ({ children }: { children: React.ReactNode }) => {
   return (
     <ClerkProvider>
-      <html lang="en">
+      <html lang="en" className="dark">
         <body className={`font-sans ${inter.variable}`}>
           <TRPCReactProvider>{children}</TRPCReactProvider>
         </body>
